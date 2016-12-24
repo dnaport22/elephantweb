@@ -1,0 +1,49 @@
+<ion-view view-title="User Guide" class="terms">
+  <ion-nav-bar class="bar-calm">
+    <ion-nav-buttons side="left">
+      <button ng-click="closeUserGuide()" class="button button-icon button-clear ion-navicon">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="item item-body">
+      <h2>Welcome to elephant!</h2>
+      <p>This is a sharing app for the London South Bank University staff and student community.
+        Use it to find a new owner for the things you no longer need, and save our planet (and your money)
+        by reusing things rather than buying them new.</p>
+      <p><em class="calm">elephant</em> allows you to upload or preview available stuff <b>FOR FREE!</b>
+        Please note that the App is moderated for your safety and the items are not immediately visible.
+        To sign up, simply register with your @lsbu.ac.uk email address and log in.</p>
+    </div>
+    <div class="item">
+      <h2>If you want to get something for free</h2>
+    </div>
+    <div class="item item-body">
+      <li>Open the app to browse through the available items.</li>
+      <li>When you see something that you like, click on the image, title or description to find out more about the item.</li>
+      <li>If you are interested in the item, write a message to its owner.</li>
+      <li>When the item is no longer available, the owner will delete the item from the app (nothing for you to worry about!).</li>
+    </div>
+    <div class="item">
+      <h2>If you want to donate something</h2>
+    </div>
+    <div class="item item-body">
+      <li>At the bottom of the screen click on the <b>post item</b> button.</li>
+      <li>You can upload one image of your item, with a title (up to 30 characters) and a description (up to 200 characters).</li>
+      <li>Once you are happy with your item, click on the “Post” button.</li>
+      <li>The item will now be visible to our administration for approval.</li>
+    </div>
+    <div class="item item-body">
+      Should you have an issues whilst using the app, please do get in touch at <b>myelephant.xyz@gmail.com</b>
+      We hope you will enjoy using elephant and thank you for your help in building a more sustainable world!
+    </div>
+    <div class="item item-body">
+      Best wishes from the elephant & LSBU teams
+    </div>
+  </ion-content>
+  <div class="tab-striped  tabs-background-calm" ng-if="$storage.app_launch_activity == 0">
+    <div class="tabs tabs-color-light ">
+      <button class="button button-calm" ng-click="closeUserGuide()">Start using the app</button>
+    </div>
+  </div>
+</ion-view>

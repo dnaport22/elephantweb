@@ -1,0 +1,17 @@
+<ion-view view-title="Activate account">
+  <div>
+    <div class="row" mg-model="activate">
+      <div class="col col-center text-center" style="padding-top:100px;padding-bottom:40px" ng-if="status == 1">
+        <i class="ion ion-checkmark-circled balanced" style="font-size: 90px;"></i>
+      </div>
+
+      <div class="col col-center text-center" style="padding-top:100px;padding-bottom:40px" ng-if="status == 0">
+        <i class="ion ion-ios-close assertive" style="font-size: 90px;"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-center text-center" style="padding-top:40px;padding-bottom:70px">
+        <h2>{{message}}</h2>
+      </div>
+    </div>
+</ion-view>

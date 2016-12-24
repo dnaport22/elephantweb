@@ -1,0 +1,62 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-calm">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">elephant</h1>
+    </ion-header-bar>
+    <ion-content>
+
+      <ion-list ng-if="$storage.user_login_id == 1">
+        <ion-item>
+          Logged in as {{::$storage.user_username}}
+        </ion-item>
+      </ion-list>
+      <ion-list ng-if="$storage.user_login_id == 0">
+        <ion-item>
+          Log in to view more options
+        </ion-item>
+      </ion-list>
+
+      <ion-list ng-repeat = "link in drawerLinks_loggedIn" ng-if="$storage.user_login_id == 1">
+        <ion-item menu-close ng-href="{{::link.href}}">
+           <i ng-class="{ '{{::link.class}}': 1 }"></i>
+          {{::link.title}}
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list ng-repeat = "link in drawerLinks_loggedOut" ng-if="$storage.user_login_id == 0">
+        <ion-item menu-close ng-href="{{::link.href}}">
+           <i ng-class="{ '{{::link.class}}': 1 }"></i>
+          {{::link.title}}
+        </ion-item>
+        <!-- This is for enabling userguide modal if app is lunched for the first time -->
+        <!-- <ion-item ng-init="openModal()">
+        </ion-item> -->
+      </ion-list>
+
+    </ion-content>
+    <ion-footer-bar
+      align-title="left"
+      ng-class = "{
+        'bar-assertive': $storage.user_login_id === 1,
+        'bar-balanced': $storage.user_login_id === 0,
+      }"
+      menu-close>
+      <h1 class="title" ng-if = "$storage.user_login_id == 1" ng-click="logout()" menu-close>Log out</h1>
+      <h1 class="title" ng-if="$storage.user_login_id == 0" ng-click="loginMainuser()">Log in</h1>
+    </ion-footer-bar>
+  </ion-side-menu>
+</ion-side-menus>

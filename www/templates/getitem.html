@@ -1,0 +1,26 @@
+<ion-view view-title="{{::item_name}}" class="get-item">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-image" style="background-image: url('http://maddna.xyz/images/{{::item_img}}')"></div>
+      <div class="item item-body">
+        {{::item_name}} <br> Posted on: {{::item_date}}
+      </div>
+      <div class="item item-body">
+        Description: <br> {{::item_description}}
+      </div>
+    </div>
+
+    <div class="list list-inset">
+      <div class="item item-icon-right">
+        <h3>Type your message below:</h3>
+      </div>
+      <label class="item item-input">
+        <textarea rows="5" id="user_message" ng-model="defaultMessagevalue" maxlength="200" ng-change="checkMaxLength()" placeholder="Please type your message here."></textarea>
+      </label>
+      <div id="user_message-warning" class="character-limit-warning" style="display: none;">Message character limit reached</div>
+      <button class="button button-calm button-full icon-center ion-paper-airplane" ng-click="messageCheck()">
+        Message
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

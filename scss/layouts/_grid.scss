@@ -1,0 +1,17 @@
+// This file contains the application of Susy settings to classes to use in the app. See utilities/_grid.scss for Susy settings
+.grid-container {
+  // Set the required Susy container() mixin
+  @include container;
+}
+
+.grid-two-to-three-to-four-col {
+  @include span(6 of 12);
+
+  @include susy-breakpoint($breakpoint-1) {
+    @include span(4 of 12);
+  }
+
+  @include susy-breakpoint($breakpoint-2) {
+    @include span(3 of 12);
+  }
+}

@@ -1,0 +1,53 @@
+////
+/// Transitions
+/// @group Transitions
+////
+
+// Transition default values.
+
+/// Transition property default value.
+/// @type String
+$transition-default-property: all;
+/// Transition duration default value in seconds.
+/// @type Number [unit]
+$transition-default-duration: 1s;
+/// Transition duration default value.
+/// @type String
+$transition-default-function: ease;
+/// Transition delay default value in seconds.
+/// @type Number [unit]
+$transition-default-delay: 0;
+
+/// Mixin for CSS transitions
+/// @param {String} $property
+/// @param {Number [unit]} $duration
+/// @param {String} $function
+/// @param {Number [unit]} $delay
+///
+/// @example scss - Usage
+///   .foo {
+///     @include transitions();
+///   }
+///   .bar {
+///     @include transitions(all, 0.5s, linear);
+///   }
+/// @example css - CSS output
+///   .foo {
+///     transition-property: all
+///     transition-duration: 1s;
+///     transition-timing-function: ease;
+///     transition-delay: 0;
+///   }
+///   .bar {
+///     transition-property: all
+///     transition-duration: 0.5s;
+///     transition-timing-function: linear;
+///     transition-delay: 0;
+///   }
+/// Use: @include transitions(leave empty for default or set options);
+@mixin transitions($property: $transition-default-property, $duration: $transition-default-duration, $function: $transition-default-function, $delay: $transition-default-delay) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $function;
+  transition-delay: $delay;
+}

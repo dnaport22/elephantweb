@@ -1,0 +1,34 @@
+////
+/// Font variables
+/// @group Fonts
+////
+
+/// Replace text with an icon (from an icon fontset)
+///
+/// @param {Length} $width
+/// @param {Length} $padding-bottom
+/// @param {Length} $font-size
+///
+/// Use: @include icon-replace(leave empty for default or set options);
+/// On the element this is being applied to, you also need a :before pseudo-element and specify the icon, eg: &:before {content:'\e800';}
+
+@mixin icon-replace($font-size, $width: 1em, $padding-bottom: 1em) {
+  font-size: 0;
+
+  &:before {
+    // Insert your icon font-family variable here, i.e. $font-icons
+    font-family: $font-icons;
+    font-size: $font-size;
+    width: $width;
+    padding-bottom: $padding-bottom;
+    visibility: visible;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  &:hover:before {
+    cursor: pointer;
+  }
+}

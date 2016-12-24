@@ -1,0 +1,8 @@
+// Overrides for the Main page.
+// Because of the fixed position tab visible on the bottom of the main page, we need to add some padding to the bottom
+// of the item list, to ensure no items are ever hidden
+.main {
+  .grid-container {
+    padding-bottom: 55px;
+  }
+}

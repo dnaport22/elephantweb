@@ -1,0 +1,10 @@
+// Overriding default tab height
+.tabs {
+  height: 55px !important;
+}
+
+.tab-item {
+  .tabs-icon-top.tabs & {
+    font-size: 13px !important;
+  }
+}

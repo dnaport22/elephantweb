@@ -1,0 +1,46 @@
+<ion-view view-title="User Guide" class="terms">
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-slide-box on-slide-changed=slideIndex($index)>
+      <ion-slide>
+        <div class="list card">
+          <div class="item">
+            <h1>Intro to elephant app</h1>
+            <div class="item item-image">
+              <img src="./../img/ionic.png">
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="list card">
+          <div class="item">
+            <h1>Intro to elephant app</h1>
+            <div class="item item-image">
+              <img src="./../img/ionic.png">
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="list card">
+          <div class="item">
+            <h1>Intro to elephant app</h1>
+            <div class="item item-image">
+              <img src="./../img/ionic.png">
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+    <div class="row">
+      <div class="col col-center text-center" ng-if="index == true">
+        <button class="button button-assertive" ng-click="previousSlide()">Previous</button>
+      </div>
+      <div class="col col-center text-center">
+        <button class="button button-balanced" ng-click="nextSlide()">{{progress}}</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

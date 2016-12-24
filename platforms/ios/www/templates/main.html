@@ -1,0 +1,54 @@
+<ion-view view-title="Home" class="main">
+  <ion-content>
+    <ion-refresher
+    pulling-text="Pull to load new items..."
+    on-refresh="pullToRefresh()">
+    </ion-refresher>
+    <div class="grid-container">
+      <div class="list list-inset search-container">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input id="search" type="text" placeholder="Search for items"
+                 ng-change="search()"
+                 ng-model="searchValue">
+        </label>
+      </div>
+
+      <div class="row" ng-show="items.length == 0">
+        <div class="col col-center text-center">
+          No items found for {{searchValue}}
+        </div>
+     </div>
+
+      <div class="grid-two-to-three-to-four-col" ng-repeat="item in items track by item.id">
+        <div href="#" class="list card" ng-click="trafficLight('getitem',item.name,item.description,item.postDate,item.uid,item.image)">
+          <div class="item item-image" style="background-image: url('http://maddna.xyz/images/{{::item.image}}')"></div>
+            <a class="item item-icon-right">
+              <i class="icon ion-ios-redo"></i>
+                {{::item.name}}
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <ion-infinite-scroll
+      ng-if="check()"
+      on-infinite="loadMore()"
+      distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+  <div class="tab-striped  tabs-background-calm">
+    <div class="tabs tabs-icon-top tabs-color-light">
+
+    <a  class="tab-item active" ng-href="#/app/postitem" ng-if="$storage.user_login_id == 1">
+      <i class="icon ion-upload"></i>
+      Post item
+    </a>
+
+    <a  class="tab-item active" ng-href="#/app/login/postitem" ng-if="$storage.user_login_id == 0">
+      <i class="icon ion-log-in"></i>
+      Log in to post item
+    </a>
+  </div>
+</div>
+</ion-view>

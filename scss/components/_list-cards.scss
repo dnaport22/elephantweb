@@ -1,0 +1,58 @@
+.list.card {
+  // Styles applying across multiple views
+  .item-image {
+    background-color: $light-grey;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+  }
+
+  // Cards on the 'Main' view
+  .main & {
+    .item-image {
+      height: 180px;
+      padding: 5px;
+    }
+
+    .item-body {
+      height: 80px;
+      overflow: scroll;
+    }
+  }
+
+  // Cards on the 'My Items' view
+  .my-items & {
+    .item-image {
+      height: 180px;
+      padding: 5px;
+    }
+
+    .item-body {
+      height: 80px;
+      overflow: scroll;
+    }
+  }
+
+  // Card on the 'Get Item' view
+  .get-item & {
+    .item-image {
+      height: 360px;
+      padding: 10px;
+    }
+  }
+
+  // Card on the 'Post Item' view
+  .post-item & {
+    .item-image {
+      height: 360px;
+      padding: 10px;
+    }
+  }
+}
+
+// Overriding unnecessary default
+.list:last-child.card {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}

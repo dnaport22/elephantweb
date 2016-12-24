@@ -1,0 +1,11 @@
+////
+/// Global elements
+/// @group Base
+////
+
+// Global border-box.
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

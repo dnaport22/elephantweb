@@ -1,0 +1,32 @@
+<ion-view view-title="My items" class="my-items">
+  <ion-content>
+    <div class="row" ng-if="myitems.length == 0">
+      <div class="col col-center text-center" style="padding-top:100px;padding-bottom:40px">
+        <i class="icon ion-sad-outline" style="font-size: 90px;"></i>
+      </div>
+    </div>
+    <div class="row" ng-if="myitems.length == 0">
+      <div class="col col-center text-center" style="padding-top:40px;padding-bottom:40px">
+        <h3>No items here...</h3>
+      </div>
+    </div>
+
+    <div class="grid-two-to-three-to-four-col" ng-repeat="items in myitems">
+      <div href="#" class="list card">
+        <div class="item item-image" style="background-image: url('http://maddna.xyz/images/{{::items.image}}')"></div>
+        <div class="item">
+          {{::items.name}}
+        </div>
+        <div class="item item-body">
+          {{::items.description}}
+        </div>
+        <a ng-click="itemOptions(items.id, items)" class="button button-positive button-small button-clear icon-right ion-gear-b" style="float: right;">edit</a>
+      </div>
+    </div>
+    <ion-infinite-scroll
+      ng-if="check()"
+      on-infinite="loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

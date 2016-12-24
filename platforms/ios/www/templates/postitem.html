@@ -1,0 +1,24 @@
+<ion-view view-title="Post Item" class="post-item">
+  <ion-content>
+    <div class="list card" id="upload-image-container" style="display: none;">
+      <div class="item item-image" id="upImage" style="background-image: url('./../img/ionic.png')"></div>
+    </div>
+    <div class="list-inset">
+      <button ng-click="imageOptions()" id="select-image-button" class="button button-block icon-left ion-camera button-positive">Select Image</button>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Name of your item" id="name" ng-model="name" maxlength="30" ng-change="checkMaxLength()">
+      </label>
+      <div id="name-warning" class="character-limit-warning" style="display: none;">Item name character limit reached</div>
+      <label class="item item-input">
+        <textarea rows="5" placeholder="Describe your item in few words" id="desc" ng-model="desc" maxlength="200" ng-change="checkMaxLength()"></textarea>
+      </label>
+      <div id="desc-warning" class="character-limit-warning" style="display: none;">Item description character limit reached</div>
+      <button class="button button-calm button-block icon-center ion-upload" ng-click="uploadItem()">
+        Upload
+      </button>
+    </div>
+  </ion-content>
+
+</ion-view>
