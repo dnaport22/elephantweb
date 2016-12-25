@@ -1,21 +1,21 @@
 elephant.constant('elephantData_URL', {
-  GET_ALL_ITEM_URL: 'http://test.myelephant.xyz/getitems.php',
+  GET_ALL_ITEM_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/getitems.php',
   GET_ALL_ITEM_TYPE: 'GET',
-  LOGIN_USER_URL: 'http://test.myelephant.xyz/login.php',
+  LOGIN_USER_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/login.php',
   LOGIN_USER_TYPE: 'POST',
-  REGISTER_USER_URL: 'http://test.myelephant.xyz/register.php',
+  REGISTER_USER_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/register.php',
   REGISTER_USER_TYPE: 'POST',
-  GET_USER_ITEM_URL: 'http://test.myelephant.xyz/myitems.php',
+  GET_USER_ITEM_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/myitems.php',
   GET_USER_ITEM_TYPE:'GET',
-  DELETE_USER_ITEM_URL: 'http://test.myelephant.xyz/dismiss.php',
+  DELETE_USER_ITEM_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/dismiss.php',
   DELETE_USER_ITEM_TYPE: 'POST',
-  POST_ITEM_URL: 'http://test.myelephant.xyz/postitem.php',
+  POST_ITEM_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/postitem.php',
   POST_ITEM_TYPE: 'POST',
-  REQUEST_ITEM_URL: 'http://test.myelephant.xyz/message.php',
+  REQUEST_ITEM_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/message.php',
   REQUEST_ITEM_TYPE: 'POST',
-  RESET_REQUEST_URL: 'http://test.myelephant.xyz/forgotpass_request.php',
+  RESET_REQUEST_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/forgotpass_request.php',
   RESET_REQUEST_TYPE: 'POST',
-  RESET_VERIFY_URL: 'http://test.myelephant.xyz/forgotpass_verify.php',
+  RESET_VERIFY_URL: 'http://'+getUrl(window.location.host)+'.myelephant.xyz/forgotpass_verify.php',
   RESET_VERIFY_TYPE: 'POST'
 })
 
@@ -43,3 +43,15 @@ elephant.constant('elephantData_RESETPASS', {
   RESET_PASS: 'reset_pass',
   RESET_PASS_VALIDATE: 'reset_pass2'
 })
+
+function getUrl(location) {
+  if (location = "developweb.myelephant.xyz") {
+    return 'develop';
+  }
+  else if (location == "testweb.myelephant.xyz") {
+    return 'test';
+  }
+  else if (location == "myelephant.xyz") {
+    return 'service';
+  }
+}
