@@ -38,7 +38,7 @@
      <!-- Card view of the items -->
       <div class="grid-two-to-three-to-four-col" ng-repeat="item in items track by item.id" ng-if="viewType == 'grid'">
         <div href="#" class="list card" ng-click="trafficLight('getitem',item.name,item.description,item.postDate,item.uid,item.image)">
-          <div class="item item-image" style="background-image: url('http://maddna.xyz/images/{{::item.image}}')"></div>
+          <div class="item item-image" style="background-image: url('{{::item.image}}')"></div>
             <a class="item item-icon-right">
                 {{::item.name}}
             </a>
@@ -49,7 +49,7 @@
         <ion-item ng-repeat="item in items track by item.id"
                   class="item-thumbnail-left" ng-if="viewType == 'list'"
                   ng-click="trafficLight('getitem',item.name,item.description,item.postDate,item.uid,item.image)">
-          <img ng-src="http://maddna.xyz/images/{{::item.image}}">
+          <img ng-src="{{::item.image}}">
           <h2>{{::item.name}}</h2>
           <p>{{::item.description}}<p>
       </ion-list>
