@@ -45,7 +45,7 @@ elephant.constant('elephantData_RESETPASS', {
 })
 
 function getUrl(location) {
-  if (location = "developweb.myelephant.xyz") {
+  if (location == "developweb.myelephant.xyz") {
     return 'develop';
   }
   else if (location == "testweb.myelephant.xyz") {
