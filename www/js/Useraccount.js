@@ -19,13 +19,13 @@ elephant.controller('UseraccountController', function($scope, $stateParams, $htt
 
   function getUrl(location) {
     if (location == "developweb.myelephant.xyz") {
-      return 'develop';
+      return 'develop.myelephant.xyz';
     }
     else if (location == "testweb.myelephant.xyz") {
-      return 'test';
+      return 'test.myelephant.xyz';
     }
     else if (location == "myelephant.xyz") {
-      return 'service';
+      return 'myelephant.xyz';
     }
   }
 
