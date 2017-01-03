@@ -45,14 +45,21 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
         offset: offset,
         limit: limit
       }}).success(function(response) {
-        console.log(response)
-        $scope.myitems = $scope.myitems.concat(response.items)
+        //$scope.myitems = $scope.myitems.concat(response.items)
+        $scope.processData(response.items)
         retrieved = response.items.length
         offset += retrieved
         $scope.$broadcast('scroll.infiniteScrollComplete');
         UIfactory.hideSpinner();
     });
   };
+
+  $scope.processData = function(data) {
+      for (i = 0; i < data.length; i++) {
+        data[i]['image_url'] = 'http://'+getUrl(window.location.hostname)+'/'+'images/'+data[i]['image']
+        $scope.myitems = $scope.myitems.concat(data[i])
+      }
+    }
 
   $scope.check = function() {
     return retrieved > 0
