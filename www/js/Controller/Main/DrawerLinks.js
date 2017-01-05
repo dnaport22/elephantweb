@@ -55,27 +55,11 @@ elephant.controller('DrawerController', function($state, $scope, $location, $loc
   }
   loginexpiryCheck();
 
- /* This is userguide pop up modal which will be executed from the menu.html is $localStorage.app_launch_activity == 0
-  * Needs improvement
-  */
- $ionicPopover.fromTemplateUrl('templates/userguide.html', {
-     scope: $scope,
-     animation: 'slide-in-up',
-   }).then(function(popover) {
-     $scope.popover = popover;
-   });
-   $scope.Test = function() {
-     if ($localStorage.user_login_id == 1) {
-       return $scope.popover.show()
-     }
-     else {
-       return true;
-     }
-   }
-   $scope.openModal = function() {
-     $scope.popover.show();
-   };
-   $scope.closeModal = function() {
-     $scope.popover.hide();
-   };
+  $scope.goToPP = function() {
+    $state.go('app.pp')
+  }
+  $scope.goToEULA = function() {
+    $state.go('app.eula')
+  }
+
 });
