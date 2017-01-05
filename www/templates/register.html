@@ -1,5 +1,5 @@
 <ion-view view-title="Register">
-  <ion-content>
+  <ion-content overflow-scroll="false">
     <div class="list list-inset">
       <label class="item item-input">
         <input type="text" placeholder="Username" id="set_name">
@@ -8,25 +8,25 @@
         <input type="text" placeholder="LSBU Email" id="set_email">
       </label>
       <label class="item item-input">
-        <input type="password" placeholder="Choose new password" id="set_pass">
+        <input type="password" placeholder="Password (min 8 chars & 1 num)" id="set_pass">
       </label>
       <label class="item item-input">
         <input type="password" placeholder="Re-type Password" id="set_pass2">
       </label>
       <ion-checkbox ng-model="isChecked.checkbox">Agree terms and condition</ion-checkbox>
-    </div>
-    <div class="row">
-      <div class="col col-center text-center" style="padding-left: 20px;">
-        <a href="#/app/terms"><h5>Terms and Conditions</h5></a>
+      <div class="row">
+        <div class="col col-center text-center">
+          <a href="#/app/terms"><h5>Terms and Conditions</h5></a>
+        </div>
+      </div>
+      <div class="row">
+        <button class="button button-calm button-full tabs tabs-icon-top" ng-click="registerUser()">
+            <a class="tab-item active" ng-click="registerUser()" style="display: inline-block;">
+              <i class="icon ion-ios-compose-outline tabs-icon-top"></i>
+              Register
+            </a>
+        </button>
       </div>
     </div>
   </ion-content>
-    <div class="tab-striped  tabs-background-calm">
-      <div class="tabs tabs-icon-top tabs-color-light ">
-      <a class="tab-item active" ng-click="registerUser()">
-        <i class="icon ion-ios-compose-outline"></i>
-        Register
-      </a>
-    </div>
-  </div>
 </ion-view>

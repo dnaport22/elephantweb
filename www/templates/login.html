@@ -1,5 +1,5 @@
 <ion-view view-title="Login">
-  <ion-content>
+  <ion-content overflow-scroll="false">
     <div class="row">
       <div class="col col-center text-center" style="padding-top:40px;padding-bottom:40px">
         <h3>{{::loginMessage}}...</h3>
@@ -26,13 +26,13 @@
         <a href="#/app/requestreset"><h5>Forgot</h5></a>
       </div>
     </div>
+    <div class="row">
+      <button class="button button-calm button-full tabs tabs-icon-top" ng-click="loginUser()">
+        <a class="tab-item active" ng-click="registerUser()" style="display: inline-block;">
+          <i class="icon ion-log-in"></i>
+            Login
+        </a>
+      </button>
+    </div>
   </ion-content>
-  <div class="tab-striped  tabs-background-calm">
-    <div class="tabs tabs-icon-top tabs-color-light ">
-    <a class="tab-item active" ng-click="loginUser()">
-      <i class="icon ion-log-in"></i>
-      Login
-    </a>
-  </div>
-</div>
 </ion-view>

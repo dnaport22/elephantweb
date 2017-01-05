@@ -38,11 +38,7 @@
      <!-- Card view of the items -->
       <div class="grid-two-to-three-to-four-col" ng-repeat="item in items track by item.id" ng-if="viewType == 'grid'">
         <div href="#" class="list card" ng-click="trafficLight('getitem',item.name,item.description,item.postDate,item.uid,item.image)">
-<<<<<<< HEAD
-          <div class="item item-image" style="background-image: url('http://{{::item.image}}')"></div>
-=======
           <div class="item item-image" style="background-image: url('{{::item.image_url}}')"></div>
->>>>>>> test
             <a class="item item-icon-right">
                 {{::item.name}}
             </a>

@@ -1,5 +1,5 @@
 <ion-view view-title="Request new password">
-  <ion-content>
+  <ion-content overflow-scroll="false">
     <div class="row">
 
     </div>
@@ -8,8 +8,10 @@
         <input type="text" placeholder="LSBU Email" id="reset_email">
       </label>
     </div>
+    <div class="row">
+      <button class="button button-calm button-full tabs tabs-icon-top" ng-click="requestReset()">
+            Request new password
+      </button>
+    </div>
   </ion-content>
-  <div class="bar bar-footer bar-calm">
-    <div class="title" ng-click="requestReset()">Request new password</div>
-  </div>
 </ion-view>
