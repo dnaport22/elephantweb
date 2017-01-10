@@ -25,7 +25,7 @@ elephant.controller('UseraccountController', function($scope, $stateParams, $htt
       return 'test.myelephant.xyz';
     }
     else if (location == "myelephant.xyz") {
-      return 'myelephant.xyz';
+      return 'service.myelephant.xyz';
     }
   }
 
