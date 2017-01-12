@@ -16,6 +16,9 @@ function getUrl(location) {
   else if (location == "myelephant.xyz") {
     return 'service.myelephant.xyz';
   }
+  else if (location == "www.myelephant.xyz") {
+    return 'service.myelephant.xyz';
+  }
   else if (location == "localhost") {
     return 'elephant.local';
   }
