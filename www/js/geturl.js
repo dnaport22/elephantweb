@@ -13,7 +13,7 @@ function getUrl(location) {
   else if (location == "testweb.myelephant.xyz") {
     return 'test.myelephant.xyz';
   }
-  else if (location == "myelephant.xyz") {
+  else if (location == "myelephant.xyz" || location == "www.myelephant.xyz") {
     return 'service.myelephant.xyz';
   }
   else if (location == "www.myelephant.xyz") {
