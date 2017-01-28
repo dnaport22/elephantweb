@@ -1,0 +1,13 @@
+{
+  "name": "susApp",
+  "app_id": "1a81529a",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}
