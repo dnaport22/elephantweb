@@ -55,8 +55,8 @@
         'bar-balanced': $storage.user_login_id === 0,
       }"
       menu-close>
-      <h1 class="title" ng-if = "$storage.user_login_id == 1" ng-click="logout()" menu-close>Log out</h1>
-      <h1 class="title" ng-if="$storage.user_login_id == 0" ng-click="loginMainuser()">Log in</h1>
+      <h1 class="title" ng-if = "$storage.user_login_id == 1" ng-click="logout()" menu-close><a href="">Log out</a></h1>
+      <h1 class="title" ng-if="$storage.user_login_id == 0" ng-click="loginMainuser()"><a href="">Log in</a></h1>
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>
