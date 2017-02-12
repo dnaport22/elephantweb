@@ -161,7 +161,10 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
       url: elephantData_URL.GIVEN_AWAY_ITEM,
       data: dataString,
       success: function(response) {
-        UIfactory.showAlert('Success', 'Item have been marked as given away');
+        UIfactory.showAlert('Success', 'Item have been marked as given away')
+        .then(function(res){
+          window.location.reload();
+        });
       },
       error: function(error) {
         UIfactory.showAlert('Error occured', 'An error occured while changing status to given away');
@@ -175,7 +178,11 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
       url: elephantData_URL.RE_APPROVE_ITEM,
       data: dataString,
       success: function(response) {
-        UIfactory.showAlert('Success', 'Item have been marked as approved');
+        //window.location.reload()
+        UIfactory.showAlert('Success', 'Item have been marked as approved')
+        .then(function(){
+          window.location.reload();
+        });
       },
       error: function(error) {
         UIfactory.showAlert('Error occured', 'An error occured while changing status to approved');
