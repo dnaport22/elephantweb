@@ -5,33 +5,7 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
   var retrieved = 0;
 
   $scope.itemOptions = function(itemid, item) {
-    var hideSheet = $ionicActionSheet.show({
-      buttons: [
-        {text: 'Delete'},
-      ],
-      buttonClicked: function(index) {
-        if (index == 0) {
-          var dataString = {
-            code: $localStorage.user_activation,
-            itemId: itemid
-          }
-          $.ajax({
-            type: elephantData_URL.DELETE_USER_ITEM_TYPE,
-            url: elephantData_URL.DELETE_USER_ITEM_URL,
-            data: dataString,
-            success:function(response) {
-              console.log(dataString)
-              hideSheet();
-              var index = $scope.myitems.indexOf(item);
-              $scope.myitems.splice(index, 1);
-            },
-            error: function(error) {
-              UIfactory.showAlert('Error occured', 'An error occured while deleting your item')
-            }
-          })
-        }
-      }
-    });
+    var hideSheet = $scope.checkStatus(itemid, item);
     $timeout(function() {
       hideSheet();
     }, 60000);
@@ -63,6 +37,83 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
 
   $scope.check = function() {
     return retrieved > 0
+  }
+
+  $scope.checkStatus = function(itemid, item){
+    if(item.status == 0){
+      $scope.onPending(item, itemid);
+    }else if(item.status == 1){
+      $scope.onApproved(item, itemid);
+    }
+  }
+
+  $scope.onPending = function(itemid, item){
+    $ionicActionSheet.show({
+      buttons: [
+        {text: 'Delete'},
+      ],
+      buttonClicked: function(index) {
+        if (index == 0) {
+          var dataString = {
+            code: $localStorage.user_activation,
+            itemId: itemid
+          }
+          $scope.deleteItem(dataString);
+        }
+      }
+    });
+  }
+
+  $scope.onApproved = function(itemid, item){
+    $ionicActionSheet.show({
+      buttons: [
+        {text: 'Given away'},
+        {text: 'Delete'}
+      ],
+      buttonClicked: function(index){
+        if (index == 1) {
+          var dataString = {
+            code: $localStorage.user_activation,
+            itemId: itemid
+          }
+          $scope.deleteItem(dataString);
+        }
+      }
+    });
+  }
+
+  $scope.onDeclined = function(itemid, item){
+    $ionicActionSheet.show({
+      buttons: [
+        {text: 'Delete'}
+      ],
+      buttonClicked: function(index){
+        if (index == 0) {
+          var dataString = {
+            code: $localStorage.user_activation,
+            itemId: itemid
+          }
+          $scope.deleteItem(dataString);
+        } 
+      }
+    });
+  }
+
+  $scope.deleteItem = function(dataString){
+    $.ajax({
+      type: elephantData_URL.DELETE_USER_ITEM_TYPE,
+      url: elephantData_URL.DELETE_USER_ITEM_URL,
+      data: dataString,
+      success:function(response) {
+        console.log(dataString)
+        hideSheet();
+        var index = $scope.myitems.indexOf(item);
+        $scope.myitems.splice(index, 1);
+      },
+      error: function(error) {
+        UIfactory.showAlert('Error occured', 'An error occured while deleting your item')
+      }
+    })
   }
 
   $scope.$on('$ionicView.beforeEnter', function() {
