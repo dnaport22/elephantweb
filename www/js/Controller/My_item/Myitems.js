@@ -161,7 +161,6 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
       url: elephantData_URL.GIVEN_AWAY_ITEM,
       data: dataString,
       success: function(response) {
-        console.log('worked');
         UIfactory.showAlert('Success', 'Item have been marked as given away');
       },
       error: function(error) {
@@ -176,7 +175,6 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
       url: elephantData_URL.RE_APPROVE_ITEM,
       data: dataString,
       success: function(response) {
-        console.log('worked');
         UIfactory.showAlert('Success', 'Item have been marked as approved');
       },
       error: function(error) {
