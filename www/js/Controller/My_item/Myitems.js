@@ -4,13 +4,6 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
   var limit = 10;
   var retrieved = 0;
 
-  $scope.itemOptions = function(itemid, item) {
-    var hideSheet = $scope.checkStatus(itemid, item);
-    $timeout(function() {
-      hideSheet();
-    }, 60000);
-  };
-
   $scope.loadMore = function() {
     UIfactory.showSpinner();
     $http({ url: elephantData_URL.GET_USER_ITEM_URL, method: elephantData_URL.GET_USER_ITEM_TYPE, cache: $templateCache,
@@ -39,16 +32,65 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     return retrieved > 0
   }
 
+  //Function checks status of the item
   $scope.checkStatus = function(itemid, item){
     if(item.status == 0){
-      $scope.onPending(item, itemid);
+      $scope.onPending(itemid, item);
     }else if(item.status == 1){
-      $scope.onApproved(item, itemid);
+      $scope.onApproved(itemid, item); 
+    }else if(item.status == -1){
+      console.log('-1');
+    }else{
+      $scope.onDeclined(itemid, item);
     }
   }
 
+  //If item is in pending status
   $scope.onPending = function(itemid, item){
-    $ionicActionSheet.show({
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [
+        {text: 'Delete'},
+      ],
+      buttonClicked: function(index){
+        if (index == 0) {
+          var dataString = {
+            code: $localStorage.user_activation,
+            itemId: itemid
+          }
+          $scope.deleteItem(dataString, item);
+          hideSheet();
+        }     
+      }
+    });
+    $timeout(function() {
+      hideSheet();
+    }, 60000);
+  }
+  //If item is in approved state
+  $scope.onApproved = function(itemid, item){
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [
+        {text: 'Given away'},
+        {text: 'Delete'}
+      ],
+      buttonClicked: function(index) {
+        if (index == 1) {
+          var dataString = {
+            code: $localStorage.user_activation,
+            itemId: itemid
+          }
+          $scope.deleteItem(dataString, item);
+          hideSheet();
+        }
+      }
+    });
+    $timeout(function() {
+      hideSheet();
+    }, 60000);
+  }
+  //If item is in declined status
+  $scope.onDeclined = function(itemid, item){
+    var hideSheet = $ionicActionSheet.show({
       buttons: [
         {text: 'Delete'},
       ],
@@ -58,62 +100,31 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
             code: $localStorage.user_activation,
             itemId: itemid
           }
-          $scope.deleteItem(dataString);
+          $scope.deleteItem(dataString, item);
+          hideSheet();
         }
       }
     });
+    $timeout(function() {
+      hideSheet();
+    }, 60000);
   }
 
-  $scope.onApproved = function(itemid, item){
-    $ionicActionSheet.show({
-      buttons: [
-        {text: 'Given away'},
-        {text: 'Delete'}
-      ],
-      buttonClicked: function(index){
-        if (index == 1) {
-          var dataString = {
-            code: $localStorage.user_activation,
-            itemId: itemid
-          }
-          $scope.deleteItem(dataString);
-        }
-      }
-    });
-  }
-
-  $scope.onDeclined = function(itemid, item){
-    $ionicActionSheet.show({
-      buttons: [
-        {text: 'Delete'}
-      ],
-      buttonClicked: function(index){
-        if (index == 0) {
-          var dataString = {
-            code: $localStorage.user_activation,
-            itemId: itemid
-          }
-          $scope.deleteItem(dataString);
-        } 
-      }
-    });
-  }
-
-  $scope.deleteItem = function(dataString){
+  //Function which removes item
+  $scope.deleteItem = function(dataString, item){
     $.ajax({
       type: elephantData_URL.DELETE_USER_ITEM_TYPE,
       url: elephantData_URL.DELETE_USER_ITEM_URL,
       data: dataString,
       success:function(response) {
         console.log(dataString)
-        hideSheet();
         var index = $scope.myitems.indexOf(item);
         $scope.myitems.splice(index, 1);
       },
       error: function(error) {
         UIfactory.showAlert('Error occured', 'An error occured while deleting your item')
       }
-    })
+    });
   }
 
   $scope.$on('$ionicView.beforeEnter', function() {
