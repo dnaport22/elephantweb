@@ -39,7 +39,7 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     }else if(item.status == 1){
       $scope.onApproved(itemid, item); 
     }else if(item.status == -1){
-      console.log('-1');
+      $scope.onGivenAway(itemid, item);
     }else{
       $scope.onDeclined(itemid, item);
     }
@@ -74,11 +74,14 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
         {text: 'Delete'}
       ],
       buttonClicked: function(index) {
-        if (index == 1) {
-          var dataString = {
-            code: $localStorage.user_activation,
-            itemId: itemid
-          }
+        var dataString = {
+          code: $localStorage.user_activation,
+          itemId: itemid
+        }
+        if(index == 0){
+          $scope.givenAway(dataString);
+          hideSheet();
+        }else if (index == 1) {
           $scope.deleteItem(dataString, item);
           hideSheet();
         }
@@ -110,6 +113,31 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     }, 60000);
   }
 
+  $scope.onGivenAway = function(itemid, item){
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [
+        {text: 'Re-post'},
+        {text: 'Delete'}
+      ],
+      buttonClicked: function(index){
+        var dataString = {
+          code: $localStorage.user_activation,
+          itemId: itemid
+        }
+        if(index == 0){
+          $scope.reApprove(dataString);
+          hideSheet();
+        }else if(index == 1){
+          $scope.deleteItem(dataString, item);
+          hideSheet();
+        }
+      }
+    });
+    $timeout(function() {
+      hideSheet();
+    }, 60000);
+  }
+
   //Function which removes item
   $scope.deleteItem = function(dataString, item){
     $.ajax({
@@ -125,6 +153,36 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
         UIfactory.showAlert('Error occured', 'An error occured while deleting your item')
       }
     });
+  }
+
+  $scope.givenAway = function(dataString){
+    $.ajax({
+      type: elephantData_URL.GIVEN_AWAY_TYPE,
+      url: elephantData_URL.GIVEN_AWAY_ITEM,
+      data: dataString,
+      success: function(response) {
+        console.log('worked');
+        UIfactory.showAlert('Success', 'Item have been marked as given away');
+      },
+      error: function(error) {
+        UIfactory.showAlert('Error occured', 'An error occured while changing status to given away');
+      }
+    })
+  }
+
+  $scope.reApprove = function(dataString){
+    $.ajax({
+      type: elephantData_URL.RE_APPROVE_TYPE,
+      url: elephantData_URL.RE_APPROVE_ITEM,
+      data: dataString,
+      success: function(response) {
+        console.log('worked');
+        UIfactory.showAlert('Success', 'Item have been marked as approved');
+      },
+      error: function(error) {
+        UIfactory.showAlert('Error occured', 'An error occured while changing status to approved');
+      }
+    })
   }
 
   $scope.$on('$ionicView.beforeEnter', function() {
