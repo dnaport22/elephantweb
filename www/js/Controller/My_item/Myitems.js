@@ -140,20 +140,20 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
 
   //Function which removes item
   $scope.deleteItem = function(dataString, item){
-    $.ajax({
-      type: elephantData_URL.DELETE_USER_ITEM_TYPE,
-      url: elephantData_URL.DELETE_USER_ITEM_URL,
-      data: dataString,
-      success:function(response) {
-        console.log(dataString)
-        var index = $scope.myitems.indexOf(item);
-        $scope.myitems.splice(index, 1);
-      },
-      error: function(error) {
-        UIfactory.showAlert('Error occured', 'An error occured while deleting your item')
-      }
-    });
+    var deleteItemSubmit = new Submitform(elephantData_URL.DELETE_USER_ITEM_TYPE,elephantData_URL.DELETE_USER_ITEM_URL,dataString,false);
+    deleteItemSubmit.ajaxSubmit(this);
+
+    $scope.onSuccess = function(response){
+      console.log(dataString);
+      var index = $scope.myitems.indexOf(item);
+      $scope.myitems.splice(index, 1);
+    }
+
+    $scope.onError = function(response){
+      UIfactory.showAlert('Success', 'Item have been marked as approved');
+    }
   }
+
 
   $scope.givenAway = function(dataString){
     $.ajax({
