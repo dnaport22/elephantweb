@@ -150,44 +150,44 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     }
 
     $scope.onError = function(response){
-      UIfactory.showAlert('Success', 'Item have been marked as approved');
+      UIfactory.showAlert('Success', 'Item have been deleted');
     }
   }
 
 
   $scope.givenAway = function(dataString){
-    $.ajax({
-      type: elephantData_URL.GIVEN_AWAY_TYPE,
-      url: elephantData_URL.GIVEN_AWAY_ITEM,
-      data: dataString,
-      success: function(response) {
-        UIfactory.showAlert('Success', 'Item have been marked as given away')
-        .then(function(res){
-          window.location.reload();
-        });
-      },
-      error: function(error) {
-        UIfactory.showAlert('Error occured', 'An error occured while changing status to given away');
-      }
-    })
+
+    var giveAwaySubmit = new Submitform(elephantData_URL.GIVEN_AWAY_TYPE,elephantData_URL.GIVEN_AWAY_ITEM,dataString, false);
+    giveAwaySubmit.ajaxSubmit(this);
+
+    $scope.onSuccess = function(response){
+      UIfactory.showAlert('Success', 'Item have been marked as given away')
+      .then(function(res){
+        window.location.reload();
+      });
+    }
+
+    $scope.onError = function(response){
+      console.log(response);
+       UIfactory.showAlert('Error occured', 'An error occured while changing status to given away');
+    }
   }
 
   $scope.reApprove = function(dataString){
-    $.ajax({
-      type: elephantData_URL.RE_APPROVE_TYPE,
-      url: elephantData_URL.RE_APPROVE_ITEM,
-      data: dataString,
-      success: function(response) {
-        //window.location.reload()
+
+    var reApproveSubmit = new Submitform(elephantData_URL.RE_APPROVE_TYPE, elephantData_URL.RE_APPROVE_ITEM, dataString, false)
+    reApproveSubmit.ajaxSubmit(this);
+
+    $scope.onSuccess = function(response){
         UIfactory.showAlert('Success', 'Item have been marked as approved')
         .then(function(){
           window.location.reload();
         });
-      },
-      error: function(error) {
-        UIfactory.showAlert('Error occured', 'An error occured while changing status to approved');
-      }
-    })
+    }
+    
+    $scope.onError = function(response){
+      UIfactory.showAlert('Error occured', 'An error occured while changing status to approved');
+    }
   }
 
   $scope.$on('$ionicView.beforeEnter', function() {
