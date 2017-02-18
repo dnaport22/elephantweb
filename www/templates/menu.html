@@ -30,7 +30,7 @@
       </ion-list>
 
       <ion-list ng-repeat = "link in drawerLinks_loggedIn" ng-if="$storage.user_login_id == 1">
-        <ion-item style="height: 50px;" menu-close ng-href="{{::link.href}}">
+        <ion-item menu-close ng-href="{{::link.href}}">
            <i ng-class="{ '{{::link.class}}': 1 }"></i>
           {{::link.title}}
         </ion-item>
@@ -51,7 +51,7 @@
       <div class="list text-center">
         <h5 class="small-label">In collaboration with</h5>
         <div class="item">
-          <img style="height: 58px; margin-bottom: 44px;" src="../www/img/lsbu-logo.jpg">
+          <img style="height: 42px; margin-bottom: 44px;" src="../www/img/lsbu-logo.jpg">
         </div>
       </div>
     </div>
