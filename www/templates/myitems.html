@@ -22,12 +22,14 @@
         </div>
         <div ng-class="{
           'bar bar-energized item item-divider': items.status == 0,
-          'bar bar-balanced item item-divider': items.status == 1
+          'bar bar-balanced item item-divider': items.status == 1,
+          'bar bar-royal item item-divider' : items.status == -1
         }">
           <span ng-if="items.status == 0">Pending approval</span>
           <span ng-if="items.status == 1">Item approved</span>
+          <span ng-if="items.status == -1">Given Away</span>
         </div>
-        <a ng-click="itemOptions(items.id, items)" class="button button-positive button-small button-clear icon-right ion-gear-b" style="float: right;">edit</a>
+        <a ng-click="checkStatus(items.id, items)" class="button button-positive button-small button-clear icon-right ion-gear-b" style="float: right;">edit</a>
       </div>
     </div>
     <ion-infinite-scroll
