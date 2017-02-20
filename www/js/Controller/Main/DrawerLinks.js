@@ -13,6 +13,7 @@ elephant.controller('DrawerController', function($state, $scope, $location, $loc
   $scope.drawerLinks_loggedOut = [
     {title: 'Home', class: 'icon ion-home', href: '#/app/main', id: 0},
     {title: 'About us', class: 'icon ion-information-circled', href: '#/app/aboutus', id: 0},
+    {title: 'Terms and conditions', class: 'icon ion-document-text', href: '#/app/terms', id: 0},
     {title: 'User guide', class: 'icon ion-ios-book', href: '#/app/userguide', id: 0}
   ];
 
@@ -22,7 +23,8 @@ elephant.controller('DrawerController', function($state, $scope, $location, $loc
     {title: 'My items', class: 'icon ion-folder', href: '#/app/myitems', id: 1},
     {title: 'About us', class: 'icon ion-information-circled', href: '#/app/aboutus', id: 1},
     {title: 'Terms and conditions', class: 'icon ion-document-text', href: '#/app/terms', id: 1},
-    {title: 'User guide', class: 'icon ion-ios-book', href: '#/app/userguide', id: 0}
+    {title: 'User guide', class: 'icon ion-ios-book', href: '#/app/userguide', id: 0},
+    {title: 'Recycling guide', class: 'icon ion-trash-a', href: '#/app/recyclingguide', id:1}
   ];
 
   $scope.logout = function() {

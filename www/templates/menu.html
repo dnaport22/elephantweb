@@ -34,7 +34,6 @@
            <i ng-class="{ '{{::link.class}}': 1 }"></i>
           {{::link.title}}
         </ion-item>
-
       </ion-list>
 
       <ion-list ng-repeat = "link in drawerLinks_loggedOut" ng-if="$storage.user_login_id == 0">
@@ -46,8 +45,16 @@
         <!-- <ion-item ng-init="openModal()">
         </ion-item> -->
       </ion-list>
-
+      <div class="ion-list">
+        <div class="ion-item text-center">
+          <h5 class="small-label">In collaboration with</h5>
+          <div class="item">
+            <img style="height: 44px;" src="../www/img/lsbu-logo.jpg">
+          </div>
+        </div>
+      </div>
     </ion-content>
+
     <ion-footer-bar
       align-title="left"
       ng-class = "{
@@ -55,8 +62,8 @@
         'bar-balanced': $storage.user_login_id === 0,
       }"
       menu-close>
-      <h1 class="title" ng-if = "$storage.user_login_id == 1" ng-click="logout()" menu-close>Log out</h1>
-      <h1 class="title" ng-if="$storage.user_login_id == 0" ng-click="loginMainuser()">Log in</h1>
+      <h1 class="title" ng-if = "$storage.user_login_id == 1" ng-click="logout()" menu-close><a href="">Log out</a></h1>
+      <h1 class="title" ng-if="$storage.user_login_id == 0" ng-click="loginMainuser()"><a href="">Log in</a></h1>
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>

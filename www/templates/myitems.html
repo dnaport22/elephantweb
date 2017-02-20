@@ -20,6 +20,13 @@
         <div class="item item-body">
           {{::items.description}}
         </div>
+        <div ng-class="{
+          'bar bar-energized item item-divider': items.status == 0,
+          'bar bar-balanced item item-divider': items.status == 1
+        }">
+          <span ng-if="items.status == 0">Pending approval</span>
+          <span ng-if="items.status == 1">Item approved</span>
+        </div>
         <a ng-click="itemOptions(items.id, items)" class="button button-positive button-small button-clear icon-right ion-gear-b" style="float: right;">edit</a>
       </div>
     </div>

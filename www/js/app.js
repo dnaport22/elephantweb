@@ -193,6 +193,15 @@ var elephant = angular.module('elephant',
         controller: 'PostitemController_web'
       }
     }
+  })
+
+  .state('app.recycling-guide', {
+    url: '/recyclingguide',
+    views: {
+      'menuContent': {
+        templateUrl: "templates/recyclingguide.html"
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
