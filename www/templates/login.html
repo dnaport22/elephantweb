@@ -1,6 +1,6 @@
 <ion-view view-title="Login">
   <ion-content overflow-scroll="false">
-    <div class="row">
+<!--     <div class="row">
       <div class="col col-center text-center" style="padding-top:40px;padding-bottom:40px">
         <h3>{{::loginMessage}}...</h3>
       </div>
@@ -33,6 +33,36 @@
             Login
         </a>
       </button>
+    </div> -->
+    <div class="" style="max-width: 1030px; min-width: 320px; margin: 20px auto; position: relative; display: flex; justify-content: center;">
+      <div class="card" style="width: 360px; margin: 20px auto 20px auto; padding: 5px;">
+        <div class="text-center col-center">
+          <h2 style="font-size: 1.4rem; padding: 1.6rem;">{{::loginMessage}}...</h2>
+        </div>  
+        <div class="list">    
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">LSBU email</span>
+            <input type="text" placeholder="example@lsbu.ac.uk" id="login_email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="item-label">elephant app password</span>
+            <input type="password" placeholder="Your elephant app Password" id="login_pass">
+          </label>
+          <label class="item item-input item-stacked-label"></label>
+        </div>
+        <div class="row">
+          <button class="button button-calm button-full tabs tabs-icon-top" ng-click="loginUser()">
+            <a class="tab-item active" style="display: inline-block;">
+              <i class="icon ion-log-in"></i>
+                Login
+            </a>
+          </button>
+        </div>
+        <div style="padding: 20px; text-align: center;">
+          <p style="display: block; width: 100%;">Do not have an account ? <a href="#" style="text-decoration: none;">Register</a></p>
+          <p style="display: block; width: 100%;">Forgot your password ? <a href="#" style="text-decoration: none;">Request password</a></p>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>
