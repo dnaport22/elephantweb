@@ -43,13 +43,12 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
     imageReader.addEventListener("load", function(event) {
       var imageFile = event.target;
       imageToUpload = file;
-
       //assign url to the cropper
       cropper.bind({
           url: imageFile.result,
           orientation: 1
       });
-      cropContainer.style.display = "block";
+      cropContainer.style.display = "flex";
     });
 
     document.getElementById("select-image-button").innerHTML= "Reselect Image";

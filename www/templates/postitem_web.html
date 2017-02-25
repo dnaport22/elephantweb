@@ -5,8 +5,8 @@
       <input type="file" accept="image/*;capture=camera" id="web_file_input" ng-model="web_file" onchange="angular.element(this).scope().previewImage()" style="display:none;">
       <button ng-click="webAppFile()" id="select-image-button" class="button button-block icon-left ion-camera button-positive">Select Image</button>
     </div>
-    <div class="list card" id="crop-image-container" style="display: none; height: 62vh;">
-      <button ng-click="cropResult()" id="approve-crop-button" class="button button-large button-positive" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Crop Image</button>
+    <div class="list card" id="crop-image-container" style="display: none; height: 66vh; text-align: center; flex-direction: column-reverse; justify-content: space-between;">
+      <button ng-click="cropResult()" id="approve-crop-button" class="button button-large button-positive">Crop Image</button>
     </div>
     <div class="list card" id="upload-image-container" style="display: none;">
       <div class="item item-image" id="upImage" style="background-image: url('./../img/ionic.png')"></div>
