@@ -9882,12 +9882,6 @@ img {
 .list-inset.search-container {
   margin: 15px 10px 5px; }
 
-.side-menu-container {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; }
-
 .small-label {
   background-color: #444;
   color: #fff;
@@ -9897,6 +9891,27 @@ img {
 .big-logo {
   height: 15vh;
   padding: 5px; }
+
+.form-wrapper {
+  max-width: 1030px;
+  min-width: 300px;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  justify-content: center; }
+  .form-wrapper .form-container {
+    width: 360px;
+    margin: 20px auto;
+    padding: 5px; }
+  .form-wrapper .form-title {
+    font-size: 1.4rem;
+    padding: 1.6rem; }
+  .form-wrapper .form-addons {
+    padding: 20px;
+    text-align: center; }
+    .form-wrapper .form-addons .form-link {
+      display: block;
+      width: 100%; }
 
 .main .grid-container {
   padding-bottom: 55px; }

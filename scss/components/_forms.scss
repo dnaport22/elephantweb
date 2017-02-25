@@ -1,0 +1,29 @@
+.form-wrapper{
+	max-width: 1030px;
+	min-width: 300px;
+	margin: 20px auto;
+	position: relative;
+	display: flex;
+	justify-content: center;
+
+	.form-container{
+		width: 360px;
+		margin: 20px auto;
+		padding: 5px;
+	}
+
+	.form-title{
+		font-size: 1.4rem;
+		padding: 1.6rem;
+	}
+
+	.form-addons{
+		padding: 20px;
+		text-align: center;
+
+		.form-link{
+			display: block;
+			width: 100%;
+		}
+	}
+}
