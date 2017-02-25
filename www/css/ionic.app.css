@@ -9879,9 +9879,6 @@ img {
   color: red;
   padding: 10px; }
 
-.list-inset.search-container {
-  margin: 15px 10px 5px; }
-
 .small-label {
   background-color: #444;
   color: #fff;
@@ -9894,10 +9891,14 @@ img {
 
 #crop-image-container {
   display: none;
+  min-height: 415px;
   height: 66vh;
   text-align: center;
   flex-direction: column-reverse;
   justify-content: space-between; }
+
+.list-inset.search-container {
+  margin: 15px 10px 5px; }
 
 .main .grid-container {
   padding-bottom: 55px; }
