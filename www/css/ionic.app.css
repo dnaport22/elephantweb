@@ -9882,12 +9882,6 @@ img {
 .list-inset.search-container {
   margin: 15px 10px 5px; }
 
-.side-menu-container {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; }
-
 .small-label {
   background-color: #444;
   color: #fff;
@@ -9897,6 +9891,13 @@ img {
 .big-logo {
   height: 15vh;
   padding: 5px; }
+
+#crop-image-container {
+  display: none;
+  height: 66vh;
+  text-align: center;
+  flex-direction: column-reverse;
+  justify-content: space-between; }
 
 .main .grid-container {
   padding-bottom: 55px; }
