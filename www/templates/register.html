@@ -1,31 +1,42 @@
 <ion-view view-title="Register">
   <ion-content overflow-scroll="false">
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="text" placeholder="Username" id="set_name">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="LSBU Email" id="set_email">
-      </label>
-      <label class="item item-input">
-        <input type="password" placeholder="Password (min 8 chars & 1 num)" id="set_pass">
-      </label>
-      <label class="item item-input">
-        <input type="password" placeholder="Re-type Password" id="set_pass2">
-      </label>
-      <ion-checkbox ng-model="isChecked.checkbox">Agree terms and condition</ion-checkbox>
-      <div class="row">
-        <div class="col col-center text-center">
-          <a href="#/app/terms"><h5>Terms and Conditions</h5></a>
+    <div class="form-wrapper">
+      <div class="card form-container">
+        <div class="text-center col-center">
+          <h2 class="form-title">Create your elephant account</h2>
+        </div>  
+        <div class="list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Username</span>
+            <input type="text" placeholder="Username" id="set_name">
+          </label>    
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">LSBU email</span>
+            <input type="text" placeholder="example@lsbu.ac.uk" id="set_email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="item-label">Elephant app password</span>
+            <input type="password" placeholder="Password (min 8 chars & 1 num)" id="set_pass">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="item-label">Retype password</span>
+            <input type="password" placeholder="Re-type Password" id="set_pass2">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <ion-checkbox style="margin-left: -15px;" ng-model="isChecked.checkbox">Agree terms and condition</ion-checkbox>
+          </label>
+          <div class="form-addons">
+            <p class="form-link"><a href="#/app/terms">Terms and Conditions</a></p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <button class="button button-calm button-full tabs tabs-icon-top" ng-click="registerUser()">
+        <div class="row">
+          <button class="button button-calm button-full tabs tabs-icon-top" ng-click="registerUser()">
             <a class="tab-item active" style="display: inline-block;">
               <i class="icon ion-ios-compose-outline tabs-icon-top"></i>
               Register
             </a>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   </ion-content>
