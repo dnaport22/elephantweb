@@ -1,6 +1,6 @@
 <ion-view view-title="Request new password">
   <ion-content overflow-scroll="false">
-    <div class="row">
+<!--     <div class="row">
 
     </div>
     <div class="list list-inset">
@@ -12,6 +12,25 @@
       <button class="button button-calm button-full tabs tabs-icon-top" ng-click="requestReset()">
             Request new password
       </button>
+    </div> -->
+    <div class="form-wrapper">
+      <div class="card form-container">
+        <div class="text-center col-center">
+          <h2 class="form-title">Type your email to request new password</h2>
+        </div>
+        <div class="list">   
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">LSBU email</span>
+            <input type="text" placeholder="example@lsbu.ac.uk" id="reset_email">
+          </label>
+          <label class="item item-input item-stacked-label"></label>
+        </div>
+        <div class="row">
+          <button class="button button-calm button-full tabs tabs-icon-top" ng-click="requestReset()">
+                Request
+          </button>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>
