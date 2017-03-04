@@ -20,7 +20,9 @@ elephant.constant('elephantData_URL', {
   GIVEN_AWAY_ITEM: 'http://'+getUrl(window.location.hostname)+'/givenaway.php',
   GIVEN_AWAY_TYPE: 'POST',
   RE_APPROVE_ITEM: 'http://'+getUrl(window.location.hostname)+'/reapprove.php',
-  RE_APPROVE_TYPE: 'POST'
+  RE_APPROVE_TYPE: 'POST',
+  DELETE_GIVEN_AWAY_URL: 'http://'+getUrl(window.location.hostname)+'/removegivenaway.php',
+  DELETE_GIVEN_AWAY_TYPE: 'POST'
 })
 
 elephant.constant('elephantData_AUTH', {

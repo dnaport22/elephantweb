@@ -128,7 +128,7 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
           $scope.reApprove(dataString);
           hideSheet();
         }else if(index == 1){
-          $scope.deleteItem(dataString, item);
+          $scope.deleteGivenAway(dataString, item);
           hideSheet();
         }
       }
@@ -187,6 +187,22 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     
     $scope.onError = function(response){
       UIfactory.showAlert('Error occured', 'An error occured while changing status to approved');
+    }
+  }
+
+  //Function delete item which was given away
+  $scope.deleteGivenAway = function(dataString, item){
+    var deleteItemSubmit = new Submitform(elephantData_URL.DELETE_GIVEN_AWAY_TYPE,elephantData_URL.DELETE_GIVEN_AWAY_URL,dataString,false);
+    deleteItemSubmit.ajaxSubmit(this);
+
+    $scope.onSuccess = function(response){
+      console.log(dataString);
+      var index = $scope.myitems.indexOf(item);
+      $scope.myitems.splice(index, 1);
+    }
+
+    $scope.onError = function(response){
+      UIfactory.showAlert('Success', 'Item have been deleted');
     }
   }
 
