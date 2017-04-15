@@ -15,9 +15,9 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
    */
   var imageToUpload = null;
 
-  var cropContainer = document.getElementById("crop-image-container");
-  var resultContainer = document.getElementById("upload-image-container");
-  var image = document.getElementById('upImage');
+  var cropContainer = inputVal.getValue("crop-image-container");
+  var resultContainer = inputVal.getValue("upload-image-container");
+  var image = inputVal.getValue('upImage');
   /**
    * Description: New instance of the cropping tool
    * first argument is div where cropper will be put in
@@ -51,7 +51,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
       cropContainer.style.display = "flex";
     });
 
-    document.getElementById("select-image-button").innerHTML= "Reselect Image";
+    inputVal.getValue("select-image-button").innerHTML= "Reselect Image";
     imageReader.readAsDataURL(file);
   }
 
