@@ -55,21 +55,14 @@
 .croppie-container .cr-image,
 .croppie-container .cr-overlay, 
 .croppie-container .cr-viewport {
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
 }
-
-/*************************************/
-/***** STYLING RANGE INPUT ***********/
-/*************************************/
-/*http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
-/*************************************/
 
 .cr-slider {
     -webkit-appearance: none;/*removes default webkit styles*/
-    /*border: 1px solid white; *//*fix for FF unable to apply focus style bug */
     width: 300px;/*required for proper track sizing in FF*/
     max-width: 100%;
 }
@@ -92,11 +85,6 @@
 .cr-slider:focus {
     outline: none;
 }
-/*
-.cr-slider:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-}
-*/
 
 .cr-slider::-moz-range-track {
     width: 100%;
@@ -114,7 +102,6 @@
     margin-top: -6px;
 }
 
-/*hide the outline behind the border*/
 .cr-slider:-moz-focusring{
     outline: 1px solid white;
     outline-offset: -1px;
@@ -150,11 +137,7 @@
 .cr-slider:focus::-ms-fill-upper {
     background: rgba(0, 0, 0, 0.5);
 }
-/*******************************************/
 
-/***********************************/
-/* Rotation Tools */
-/***********************************/
 .cr-rotate-controls {
     position: absolute;
     bottom: 5px;
