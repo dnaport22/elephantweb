@@ -161,7 +161,7 @@ elephant.controller('MyitemsController', function($scope, $http, $timeout, $loca
     giveAwaySubmit.ajaxSubmit(this);
 
     $scope.onSuccess = function(response){
-      UIfactory.showAlert('Success', 'Item have been marked as given away')
+      UIfactory.showAlert('Success', 'Item has been marked as given away')
       .then(function(res){
         window.location.reload();
       });
