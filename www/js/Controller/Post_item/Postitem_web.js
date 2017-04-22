@@ -15,6 +15,21 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
    */
   var imageToUpload = null;
 
+  var cropContainer = document.getElementById("crop-image-container");
+  var resultContainer = document.getElementById("upload-image-container");
+  var image = document.getElementById('upImage');
+  /**
+   * Description: New instance of the cropping tool
+   * first argument is div where cropper will be put in
+   * second arhuments are not neccessary, for more info about 
+   * options go to http://foliotek.github.io/Croppie/#documentation
+   */
+  var cropper = new Croppie(cropContainer, {
+    viewport: { width: 200, height: 200 },
+    boundary: { width: 300, height: 300 },
+    enableOrientation: true
+  });
+
   /**
    * Description: triggered when image is selected
    *              an event listener "load" listens
@@ -23,17 +38,31 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
   $scope.previewImage = function() {
     var file = document.querySelector('input[type=file]').files[0];
     var imageReader = new FileReader();
+    //in case of reselcting image, we make sure that container is hidden
+    resultContainer.style.display = "none";
     imageReader.addEventListener("load", function(event) {
       var imageFile = event.target;
-      var image = document.getElementById('upImage');
       imageToUpload = file;
-      image.style.backgroundImage = "url('" + imageFile.result + "')";
-      document.getElementById("upload-image-container").style.display = "block";
-      document.getElementById("select-image-button").innerHTML= "Reselect Image";
-    })
+      //assign url to the cropper
+      cropper.bind({
+          url: imageFile.result,
+          orientation: 1
+      });
+      cropContainer.style.display = "flex";
+    });
+
+    document.getElementById("select-image-button").innerHTML= "Reselect Image";
     imageReader.readAsDataURL(file);
   }
 
+
+  $scope.cropResult = function(){
+    cropper.result('base64').then(function(image_base64) {
+      cropContainer.style.display = "none";
+      image.style.backgroundImage = "url('" + image_base64 + "')";
+      resultContainer.style.display = "block";
+    });
+  }
   /**
    * Description: triggered by the user when ready to upload item
    */
