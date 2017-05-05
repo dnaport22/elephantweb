@@ -16,7 +16,11 @@ elephant.constant('elephantData_URL', {
   RESET_REQUEST_URL: 'http://'+getUrl(window.location.hostname)+'/forgotpass_request.php',
   RESET_REQUEST_TYPE: 'POST',
   RESET_VERIFY_URL: 'http://'+getUrl(window.location.hostname)+'/forgotpass_verify.php',
-  RESET_VERIFY_TYPE: 'POST'
+  RESET_VERIFY_TYPE: 'POST',
+  GIVEN_AWAY_ITEM: 'http://'+getUrl(window.location.hostname)+'/givenaway.php',
+  GIVEN_AWAY_TYPE: 'POST',
+  RE_APPROVE_ITEM: 'http://'+getUrl(window.location.hostname)+'/reapprove.php',
+  RE_APPROVE_TYPE: 'POST'
 })
 
 elephant.constant('elephantData_AUTH', {
