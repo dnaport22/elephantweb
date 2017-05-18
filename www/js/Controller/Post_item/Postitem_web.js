@@ -58,6 +58,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
 
   $scope.cropResult = function(){
     cropper.result('base64').then(function(image_base64) {
+      $scope.croppedImage = image_base64;
       cropContainer.style.display = "none";
       image.style.backgroundImage = "url('" + image_base64 + "')";
       resultContainer.style.display = "block";
@@ -68,7 +69,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
    */
   $scope.uploadItem = function() {
     UIfactory.showSpinner();
-    var fileURL = imageToUpload;
+    var fileURL = $scope.croppedImage;
     var serverURL = elephantData_URL.POST_ITEM_URL;
     var itemName = inputVal.getValue(itemNameid);
     var itemDesc = inputVal.getValue(itemDescid);
