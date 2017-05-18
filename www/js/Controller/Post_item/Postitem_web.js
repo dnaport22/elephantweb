@@ -83,7 +83,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
       uploadData.append('itemName', itemName);
       uploadData.append('desc', itemDesc);
       uploadData.append('code', $localStorage.user_activation);
-      uploadData.append('file', imageToUpload);
+      uploadData.append('file', fileURL);
 
       var postItem = new Submitform('POST', serverURL, uploadData, false)
       postItem.ajaxFileSubmit(this);
