@@ -27,7 +27,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
   var cropper = new Croppie(cropContainer, {
     viewport: { width: 200, height: 200 },
     boundary: { width: 300, height: 300 },
-    enableOrientation: true
+    enableOrientation: false
   });
 
   /**
@@ -57,7 +57,7 @@ elephant.controller('PostitemController_web', function($scope,$localStorage ,$io
 
 
   $scope.cropResult = function(){
-    cropper.result('base64').then(function(image_base64) {
+    cropper.result('base64', 'viewport').then(function(image_base64) {
       $scope.croppedImage = image_base64;
       cropContainer.style.display = "none";
       image.style.backgroundImage = "url('" + image_base64 + "')";
